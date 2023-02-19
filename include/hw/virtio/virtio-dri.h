@@ -12,6 +12,11 @@ typedef struct {
 	VirtIODevice parent_obj;
 
 	size_t config_size;
+
+	VirtQueue *ivq;
+
+	uint32_t count;
+	QEMUTimer *timer;
 } VirtIODri;
 
 #define VIRTIO_DRI(obj)	\
