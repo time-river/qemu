@@ -15,7 +15,7 @@ static void virtio_dri_pci_realize(VirtIOPCIProxy *vpci_dev, Error **errp)
 	DeviceState *vdev = DEVICE(&dev->vdev);
 
 	printf(">>> %s\n", __func__);
-	vpci_dev->class_code = PCI_CLASS_OTHERS;
+	vpci_dev->class_code = PCI_CLASS_DISPLAY_OTHER;
 	qdev_realize(vdev, BUS(&vpci_dev->bus), errp);
 }
 
@@ -31,7 +31,7 @@ static void virtio_dri_pci_class_init(ObjectClass *klass, void *data)
 	pcidev_k->vendor_id = PCI_VENDOR_ID_REDHAT_QUMRANET;
 	pcidev_k->device_id = PCI_DEVICE_ID_VIRTIO_DRI;
 	pcidev_k->revision = VIRTIO_PCI_ABI_VERSION;
-	pcidev_k->class_id = PCI_CLASS_OTHERS;
+	pcidev_k->class_id = PCI_CLASS_DISPLAY_OTHER;
 }
 
 static void virtio_dri_pci_instance_init(Object *obj)
